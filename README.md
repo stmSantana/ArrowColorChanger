@@ -1,6 +1,9 @@
 # ArrowColorChanger
 
-This is a mod for **The Long Dark** by Hinterland Studio, Inc.
+This is a mod for **The Long Dark** by Hinterland Studio, Inc.<br>
+<img src="https://github.com/stmSantana/ArrowColorChanger/blob/main/Images/ArrowColor01.jpg" width="80%"><br>
+<img src="https://github.com/stmSantana/ArrowColorChanger/blob/main/Images/ArrowColor02.jpg" width="30%"> 
+<img src="https://github.com/stmSantana/ArrowColorChanger/blob/main/Images/ArrowColor03.jpg" width="63%">
 
 ## Installation
 * If you haven't done so already, install MelonLoader by downloading and running [MelonLoader.Installer.exe](https://github.com/HerpDerpinstine/MelonLoader/releases/latest/download/MelonLoader.Installer.exe)
@@ -12,7 +15,8 @@ This is a mod for **The Long Dark** by Hinterland Studio, Inc.
   
 ## Description 
 * All arrows will change color when you install the mod.
-* The color can be changed as an option. (`Options` - `Mod Settings`.)
+* The color can be changed as an option. (`Options` - `Mod Settings`)
+<img src="https://github.com/stmSantana/ArrowColorChanger/blob/main/Images/ArrowColor04.jpg" width="50%">
   
 ## NOTE:
 The colors of all the arrows will change together when the game loads.<br>
