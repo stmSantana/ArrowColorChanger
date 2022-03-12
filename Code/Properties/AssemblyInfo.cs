@@ -15,5 +15,5 @@ using BuildInfo = ChangeTextures.BuildInfo;
 
 [assembly: AssemblyVersion(BuildInfo.Version)]
 [assembly: AssemblyFileVersion(BuildInfo.Version)]
-[assembly: MelonInfo(typeof(ChangeTextures.Implementation), BuildInfo.Name, BuildInfo.Version, BuildInfo.Author, BuildInfo.DownloadLink)]
+[assembly: MelonInfo(typeof(ArrowColorChanger.Implementation), BuildInfo.Name, BuildInfo.Version, BuildInfo.Author, BuildInfo.DownloadLink)]
 [assembly: MelonGame("Hinterland", "TheLongDark")]
