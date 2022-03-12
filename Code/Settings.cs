@@ -1,10 +1,10 @@
-using ModSettings;
+﻿using ModSettings;
 using UnityEngine;
 
 //using MelonLoader;
 //using System.Reflection;
 
-namespace ChangeTextures
+namespace ArrowColorChanger
 {
     internal class ACSettings : JsonModSettings
     {

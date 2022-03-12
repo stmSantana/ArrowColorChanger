@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using MelonLoader;
-using HarmonyLib;
 
+//using HarmonyLib;
 //using System;
 //using System.IO;
 //using System.Linq;
@@ -9,7 +9,7 @@ using HarmonyLib;
 //using System.Reflection;
 //using ModSettings;
 
-namespace ChangeTextures
+namespace ArrowColorChanger
 {
     internal class Implementation : MelonMod
     {
@@ -20,17 +20,20 @@ namespace ChangeTextures
         {
             Settings.OnLoad();/// ModSettings
             LoggerInstance.Msg($"Version {BuildInfo.Version}");
+
         }
 
         public override void OnSceneWasInitialized(int level, string name)
         {
             ChangeArrow();
         }
-        
+
         public static void ChangeArrow()
         {
+
             if (!changedac) /// adding textures
             {
+                //MelonLogger.Msg("Debug Log ============================================== changedac = " + changedac);
                 Material arrowMat;
                 GameObject arrowGear;
                 Material acMat;
@@ -58,5 +61,18 @@ namespace ChangeTextures
                 changedac = true;
             }
         }
+
     }
+
+    /*
+  [HarmonyPatch(typeof(GameManager), "Update")]
+  internal class GameManager_Update
+  {
+      private static void Postfix()
+      {
+          Implementation.ChangeArrow();
+      }
+  }
+   */
+
 }
