@@ -1,11 +1,13 @@
-﻿using ModSettings;
+using ModSettings;
 using UnityEngine;
+
+//using MelonLoader;
+//using System.Reflection;
 
 namespace ChangeTextures
 {
     internal class ACSettings : JsonModSettings
     {
-        ///internal static Settings instance = new Settings();
 
         [Section("Arrow color settings")]
 
@@ -29,23 +31,25 @@ namespace ChangeTextures
         /// [Slider(0, 255)]
         /// public int acA = 255;
 
+
         protected override void OnConfirm()
         {
+            base.OnConfirm();
+
             Debug.Log("AC Settings applied!");
             Implementation.changedac = false;
+            Implementation.ChangeArrow();
         }
-
-
+               
     }
     internal static class Settings
     {
         public static ACSettings options = new ACSettings();
-        public static void OnLoad()
+        public static void OnLoad() 
         {
-            options = new ACSettings();
-            options.AddToModSettings("Change textures Settings");
+            options.AddToModSettings("Arrow Color Changer Settings", MenuType.Both);  // or MenuType.MainMenuOnly, or MenuType.Both
         }
-    }
 
+    }
 
 }
