@@ -1,55 +1,62 @@
-using ModSettings;
 using UnityEngine;
+using MelonLoader;
+using HarmonyLib;
 
-//using MelonLoader;
+//using System;
+//using System.IO;
+//using System.Linq;
+//using System.Collections.Generic;
 //using System.Reflection;
+//using ModSettings;
 
 namespace ChangeTextures
 {
-    internal class ACSettings : JsonModSettings
+    internal class Implementation : MelonMod
     {
 
-        [Section("Arrow color settings")]
+        public static bool changedac = false;
 
-        [Name("Red")]
-        [Description("0 to 255")]
-        [Slider(0, 255)]
-        public int acR = 255;
-
-        [Name("Green")]
-        [Description("0 to 255")]
-        [Slider(0, 255)]
-        public int acG = 0;
-
-        [Name("Blue")]
-        [Description("0 to 255")]
-        [Slider(0, 255)]
-        public int acB = 255;
-
-        /// [Name("Alpha")]
-        /// [Description("0 to 255")]
-        /// [Slider(0, 255)]
-        /// public int acA = 255;
-
-
-        protected override void OnConfirm()
+        public override void OnApplicationStart()
         {
-            base.OnConfirm();
-
-            Debug.Log("AC Settings applied!");
-            Implementation.changedac = false;
-            Implementation.ChangeArrow();
-        }
-               
-    }
-    internal static class Settings
-    {
-        public static ACSettings options = new ACSettings();
-        public static void OnLoad() 
-        {
-            options.AddToModSettings("Arrow Color Changer Settings", MenuType.Both);  // or MenuType.MainMenuOnly, or MenuType.Both
+            Settings.OnLoad();/// ModSettings
+            LoggerInstance.Msg($"Version {BuildInfo.Version}");
         }
 
-    }
+        public override void OnSceneWasInitialized(int level, string name)
+        {
+            ChangeArrow();
+        }
+        
+        public static void ChangeArrow()
+        {
+            if (!changedac) /// adding textures
+            {
+                Material arrowMat;
+                GameObject arrowGear;
+                Material acMat;
+                GameObject acGear;
 
+                byte colR = (byte)Settings.options.acR;
+                byte colG = (byte)Settings.options.acG;
+                byte colB = (byte)Settings.options.acB;
+                byte colA = 255;
+
+                arrowGear = Resources.Load("GEAR_Arrow").TryCast<GameObject>();
+                acGear = Resources.Load("GEAR_ArrowCol").TryCast<GameObject>();
+                if (arrowGear == null) return;
+                if (acGear == null) return;
+
+                arrowMat = new Material(Resources.Load("GEAR_Arrow").TryCast<GameObject>().transform.GetChild(0).GetComponent<MeshRenderer>().materials[0]);
+                acMat = new Material(Resources.Load("GEAR_ArrowCol").TryCast<GameObject>().transform.GetChild(0).GetComponent<MeshRenderer>().materials[0]);
+                if (arrowMat == null) return;
+                if (acMat == null) return;
+
+                acMat.mainTexture = acGear.transform.GetChild(1).GetComponent<MeshRenderer>().materials[0].mainTexture; // child(1) is a white shaft texture.
+                arrowMat.mainTexture = arrowGear.transform.GetChild(0).GetComponent<MeshRenderer>().materials[0].mainTexture;
+                arrowGear.transform.GetChild(0).GetComponent<MeshRenderer>().materials[0].color = new Color32(colR, colG, colB, colA); // change material color
+
+                changedac = true;
+            }
+        }
+    }
 }
