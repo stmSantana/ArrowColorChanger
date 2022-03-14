@@ -1,8 +1,8 @@
 ﻿{
-    "GAMEPLAY_ArrowCol" : {
-                            "English" : "Sample Arrow Colored",
+    "GAMEPLAY_0Cube1" : {
+                            "English" : "Sample Item1"
     },
-    "GAMEPLAY_ArrowColDescription" : {
-                            "English" : "A sample arrow",
+    "GAMEPLAY_0Cube1Description" : {
+                            "English" : "A sample item description"
     }
 }
