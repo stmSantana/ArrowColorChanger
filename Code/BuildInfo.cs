@@ -10,7 +10,7 @@
         public const string Description = "TLD Mod"; // Description for the Mod.  (Set as null if none)
         public const string Author = "stmSantana"; // Author of the Mod.  (MUST BE SET)
         public const string Company = null; // Company that made the Mod.  (Set as null if none)
-        public const string Version = "1.1.0"; // Version of the Mod.  (MUST BE SET)
+        public const string Version = "2.0.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = "https://github.com/stmSantana/ArrowColorChanger"; // Download Link for the Mod.  (Set as null if none)
     }
 }
